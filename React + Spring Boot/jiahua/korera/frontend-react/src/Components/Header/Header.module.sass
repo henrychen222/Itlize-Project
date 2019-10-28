@@ -1,0 +1,74 @@
+@import ../../variables
+  
+.header
+  display: grid
+  grid-template-columns: max-content 1fr
+  border-bottom: 1px solid black
+
+  .panel
+    background: $primary-color
+    color: white
+    width: $sidebar-width
+    display: grid
+    grid-template-columns: $icon-size 1fr
+    grid-gap: .5rem
+    align-items: center
+
+    p
+      padding: .7rem 0
+
+  .info
+    display: grid
+    justify-content: end
+    align-items: center
+    margin-right: 1rem
+    grid-template-columns: repeat(2, max-content)
+    grid-gap: 4rem
+    position: relative
+
+    .click
+      cursor: pointer
+
+    .popup
+      background: aqua
+      position: absolute
+      width: $pop-up-width
+      margin-left: -($pop-up-width / 2)
+      top: 100%
+      text-align: center
+      z-index: 10
+
+      &.hide
+        display: none
+
+      &::after
+        content: ''
+        position: absolute
+        bottom: 100%
+        left: 50%
+        margin-left: 1.05%
+        border-width: 10px
+        border-style: solid
+        border-color: transparent transparent black transparent
+
+      & > div:first-child
+        background: black
+        color: white
+        padding: 1rem 0 .5rem 0
+
+        p
+          font-size: .8rem
+
+        p:first-child 
+          font-size: 1.4rem
+
+      & > div:last-child
+        display: grid
+        grid-template-columns: max-content 1fr max-content
+        padding: .5rem
+        background: #bdbdbd
+
+        button
+          padding: .2rem
+          cursor: pointer
+          

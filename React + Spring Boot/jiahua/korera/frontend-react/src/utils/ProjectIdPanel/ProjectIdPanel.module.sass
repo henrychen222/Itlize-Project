@@ -1,0 +1,56 @@
+@import '../../variables.sass'
+  
+.container
+  position: relative
+  display: grid
+  grid-template-columns: 1fr max-content
+  justify-content: center
+  min-width: $sidebar-width
+  cursor: pointer
+  font-size: .8rem
+  
+  > *
+    border: 1px solid $thead-background-color
+
+  span
+    padding: .2rem
+
+  svg
+    box-sizing: border-box
+    border-left: 0
+    max-width: $svg-icon-size
+    height: 100%
+    align-self: center
+    padding: .05rem
+
+  > div
+    border: 1px solid $thead-background-color
+    border-top: 1px solid transparent
+    padding: .2rem
+    position: absolute
+    top: 100%
+    right: 0
+    width: 100%
+    box-sizing: border-box
+    background: white
+    z-index: 10
+
+    div:first-child
+      border: 1px solid tomato
+      padding: .2rem
+      outline: gray
+
+      input 
+        border: 0
+
+        &:focus
+          outline: none
+
+      svg
+        border: 0
+
+    ul
+      padding: .5rem .3rem
+    
+      li
+        cursor: pointer

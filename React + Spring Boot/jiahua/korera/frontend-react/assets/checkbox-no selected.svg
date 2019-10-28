@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
+><svg
+  t="1558132019506"
+  class="icon"
+  viewBox="0 0 1024 1024"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  p-id="4377"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="16"
+  height="16"
+>
+  <defs><style type="text/css"></style></defs>
+  <path
+    d="M160 32h704a128 128 0 0 1 128 128v704a128 128 0 0 1-128 128H160a128 128 0 0 1-128-128V160a128 128 0 0 1 128-128z m0 64a64 64 0 0 0-64 64v704a64 64 0 0 0 64 64h704a64 64 0 0 0 64-64V160a64 64 0 0 0-64-64H160z"
+    p-id="4378"
+    fill="#8a8a8a"
+  ></path>
+</svg>

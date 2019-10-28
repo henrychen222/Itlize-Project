@@ -1,0 +1,46 @@
+@import ../../variables.sass
+  
+.container
+  overflow: auto
+  border: 1px solid $light-border-color
+
+  table
+    width: 100%
+    table-layout: fixed
+    border-collapse: collapse
+
+    thead th
+      text-align: center
+      background: $thead-background-color
+      position: sticky
+      top: 0
+      font-weight: 500
+      background-clip: padding-box
+      z-index: 2
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 100%
+        border-bottom: 1px solid $light-border-color
+
+      &:first-child
+        border-right: 1px solid $light-border-color
+  
+        &:after
+          height: 100%
+          border-right: 1px solid $light-border-color
+
+    td
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+
+      svg
+        cursor: pointer
+        width: $svg-icon-size
+        height: auto
+        vertical-align: sub
+        margin-right: .1rem

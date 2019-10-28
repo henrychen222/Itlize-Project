@@ -1,0 +1,48 @@
+@import ../../variables.sass
+
+nav.sidebar
+  background: black
+  color: white
+  height: 100%
+  position: relative
+  width: 0
+  transition: all 0.5s
+
+  ul
+    visibility: hidden
+    list-style-type: none
+    padding: .5rem
+    overflow: hidden
+
+    li a
+      cursor: pointer
+      color: inherit
+      text-decoration: none
+
+      &.current
+        color: $primary-color
+
+      &:hover
+        color: skyblue
+        font-style: italic
+
+  .pointer
+    color: inherit
+    position: absolute
+    background: black
+    left: 100%
+    top: 0
+    padding: .3rem .5rem
+    border: 0
+    border-top-right-radius: 30%
+    border-bottom-right-radius: 30%
+    cursor: pointer
+
+    &:focus
+      outline: none
+
+  &.expanded
+    width: $sidebar-width
+
+    ul
+      visibility: visible

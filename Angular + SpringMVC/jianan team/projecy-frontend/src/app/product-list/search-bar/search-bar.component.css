@@ -1,0 +1,14 @@
+#search-button {
+    margin-top: 8px;
+    color: darkred;
+    border-color: darkred;
+}
+
+#search-button:hover {
+    background-color: darkred;
+    color: white;
+}
+#big-head {
+    justify-content: center;
+}
+

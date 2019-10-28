@@ -1,0 +1,46 @@
+<app-navigation [toLogin]="false"></app-navigation>
+
+<form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="outline">
+      <input
+        required
+        matInput
+        placeholder="Username or Email"
+        formControlName="name"
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-hint
+        class="warning"
+        [hidden]="!submitted || !loginForm.controls['name'].errors?.required"
+      >
+        Username or email is required.
+      </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        required
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-hint
+        class="warning"
+        [hidden]="
+          !submitted || !loginForm.controls['password'].errors?.required
+        "
+      >
+        Password is required.
+      </mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="submit">
+    <button color="primary" mat-raised-button type="submit">Log In</button>
+  </div>
+</form>

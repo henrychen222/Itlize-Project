@@ -1,0 +1,159 @@
+<nav>
+  <a class="category" [routerLink]="['/user', 'query', category]">
+    {{ category }}
+  </a>
+  <span *ngIf="subCategory">
+    >
+    <a
+      class="subCategory"
+      [routerLink]="['/user', 'query', category, subCategory]"
+    >
+      {{ subCategory }}
+    </a>
+  </span>
+  > Compare
+</nav>
+
+<div class="table">
+  <table>
+    <thead>
+      <th></th>
+      <th class="header" *ngFor="let item of comparedItems | async" colspan="4">
+        <div class="verified">Verified {{ item.verified | date }}</div>
+        <img [src]="item.imgUrl" />
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fullborder">
+          DESCRIPTION
+        </td>
+        <td
+          class="fullborder"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        ></td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Manufacturer</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.description['Manufacturer'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Series</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.description['Series'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Model</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.description['Model'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="fullborder">TYPE</td>
+        <td
+          class="fullborder"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        ></td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Use Type</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.type$['Accessories$type'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Application</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.type$['Application$type'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Mounting Location</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.type$['Mounting_Location$type'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Accessories</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.type$['Accessories$type'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="gray_style border-left-right">Model year</td>
+        <td
+          class="center_style border-left-right"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        >
+          {{ item.type$['Model_year$num'] }}
+        </td>
+      </tr>
+      <tr>
+        <td class="fullborder">TECHNICAL SPECIFICATIONS</td>
+        <td
+          class="fullborder"
+          colspan="4"
+          *ngFor="let item of comparedItems | async"
+        ></td>
+      </tr>
+      <tr *ngFor="let f of fields | keyvalue">
+        <td class="gray_style border-left-right">{{ f.key }}</td>
+
+        <ng-container *ngFor="let item of comparedItems | async">
+          <ng-container
+            *ngIf="f.value.min; then minmax; else solo"
+          ></ng-container>
+          <ng-template #minmax>
+            <td class="center_style gray_style">min</td>
+            <td class="center_style">
+              {{ item.technical_specifications$[f.value.min] }}
+            </td>
+            <td class="center_style gray_style">max</td>
+            <td class="center_style border-right">
+              {{ item.technical_specifications$[f.value.max] }}
+            </td>
+          </ng-template>
+          <ng-template #solo>
+            <td class="center_style border-right" colspan="4">
+              {{ item.technical_specifications$[f.value] }}
+            </td>
+          </ng-template>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,107 @@
+@import ../../variables.sass
+
+main.survey
+  border: 1px solid black
+  display: grid
+  grid-template-columns: minmax(200px, 3fr) 7fr
+
+  @media screen and (max-width: 400px)
+    grid-template-columns: max-content
+
+  aside
+    padding: 0 .5rem
+    border-right: 1px solid black
+
+    @media screen and (max-width: 400px)
+      border-right: 0
+      border-bottom: 1px solid black
+    
+    header
+      padding: .2rem .6rem
+      background: $thead-background-color
+      border: 1px solid $light-border-color
+      border-top: 0
+      font-weight: 500
+
+    ul
+      list-style-type: none
+      background: white
+      border: 1px solid $light-border-color
+      border-top: 0
+
+      li
+        display: grid
+        grid-template-columns: 7fr 3fr
+
+        &:nth-child(even)
+          background: $thead-background-color
+
+        &:not(:last-child)
+          border-bottom: 1px solid $light-border-color
+
+        span
+          padding: .2rem
+          border-right: 1px solid $light-border-color
+
+        svg
+          padding: .3rem
+          vertical-align: center
+
+  section
+    display: grid
+    padding: 0 .5rem
+    grid-gap: .5rem
+    grid-template-rows: repeat(auto-fit, minmax(0, max-content))
+    
+    header
+      justify-self: stretch
+      padding: .2rem .5rem
+      background: $thead-background-color
+      font-weight: 500
+      border: 1px solid $light-border-color
+      border-top: 0
+
+    > div
+      background: $thead-background-color
+      border: 1px solid $light-border-color
+      display: grid
+      grid-template-columns: repeat(3, 1fr) max-content
+      align-items: center
+
+      span
+        border-right: 0
+        display: grid
+        grid-template-columns: max-content
+
+      > *
+        padding: .5rem
+        border-right: 1px solid $light-border-color
+
+        &.hiding
+          visibility: hidden
+
+        &.hiding + span
+          border-left: 1px solid $light-border-color
+
+      label
+        display: grid
+
+        span
+          color: red
+          font-size: .6rem
+
+    svg
+      background: $primary-color
+      max-width: $svg-icon-size
+      height: auto
+      padding: .2rem
+      cursor: pointer
+
+    footer
+      display: grid
+      grid-template-columns: max-content max-content
+      align-items: center
+      grid-gap: .3rem
+
+      svg
+        padding: .1rem
