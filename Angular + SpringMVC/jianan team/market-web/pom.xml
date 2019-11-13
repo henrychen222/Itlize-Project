@@ -15,7 +15,7 @@
 		<spring.version>4.2.5.RELEASE</spring.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 		<org.aspectj-version>1.8.1</org.aspectj-version>
-		<jackson.databind-version>2.2.3</jackson.databind-version>
+		<jackson.databind-version>2.9.10.1</jackson.databind-version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 	</properties>
 	<dependencies>
