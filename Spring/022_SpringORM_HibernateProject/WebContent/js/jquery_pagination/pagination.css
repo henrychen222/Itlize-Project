@@ -1,0 +1,41 @@
+.pagination {
+	font-size: 80%;
+}
+.pagination a {
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+	text-decoration: none;
+	border: solid 1px #7B7D7B;
+	color: #000000;
+}
+.pagination a, .pagination span {
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+	padding: 0.3em 0.5em;	
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.pagination .current {
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+	background: #7BC4FF;
+	color: #000000;
+	border: solid 1px #7B7D7B;
+}
+.pagination .current.prev, .pagination .current.next{
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+	background: #ADD9FF;
+	color: #501D01;
+	border: 1px solid #000000; 
+}
+.pagination .current.prev.disabled, .pagination .current.next.disabled {
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+	background: #C8E8FF;
+	color: #9D9DA1;
+	border: 1px solid #7E7E7E; 
+}

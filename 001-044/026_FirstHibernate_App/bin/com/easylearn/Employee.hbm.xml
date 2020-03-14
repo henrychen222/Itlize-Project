@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 30, 2017 5:58:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.easylearn.Employee" table="employee" catalog="java_weekend_batch1">
+        <id name="idEmp" type="java.lang.Integer">
+            <column name="ID_EMP" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="FIRST_NAME" length="40" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="40" />
+        </property>
+        <property name="middleName" type="string">
+            <column name="MIDDLE_NAME" length="30" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="PHONE_NUMBER" length="10" />
+        </property>
+        <property name="emailId" type="string">
+            <column name="EMAIL_ID" length="265" />
+        </property>
+        <property name="txAddress" type="string">
+            <column name="TX_ADDRESS" length="268" />
+        </property>
+    </class>
+</hibernate-mapping>

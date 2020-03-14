@@ -1,0 +1,29 @@
+In case you want to test the application with some dummy data and without using any client application,
+you can do that using Chrome's Postman - REST Client.
+Make sure to set content-type: application/json when sending form data in JSON format to the service.
+
+
+GET Employees :-
+*****************
+http://localhost:8080/SpringRestCrud/employee/list
+
+GET Employee Details :-
+*******************
+http://localhost:8080/SpringRestCrud/employee/3
+
+POST Create Employee :-
+**********************
+http://localhost:8080/SpringRestCrud/employee/create
+{
+  "firstName" : "Sreenivas",
+  "lastName" : "Reddy",
+  "email" : "sreenivasreddy6@gmail.com",
+  "phone" : "9908576972"
+}
+
+
+GET DELETE Employee :-
+********************
+http://localhost:8080/SpringRestCrud/employee/delete/5
+
+

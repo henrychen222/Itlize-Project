@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+<!--  	<import resource="/com/easylearn/emp-config.xml"/> -->
+
+	<bean id="empObj" class="com.easylearn.EmployeeBean">
+		<property name="salary" value="15000.86"/>
+		<property name="department" value="JAVA" ></property>
+		<property name="empId">
+			<value>1001</value>
+		</property>
+		<property name="isActive" value="true"></property>
+		<property name="name" value="John Smith"></property>
+		<property name="resiAddress" ref="resiAddrObj"></property>
+		<property name="mailAddress">
+					<ref bean="mailAddrObj"/>
+		</property>
+	</bean>
+
+</beans>

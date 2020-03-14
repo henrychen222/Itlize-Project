@@ -1,0 +1,59 @@
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+  <display-name>Archetype Created Web Application</display-name>
+  
+   
+  <welcome-file-list>
+		<welcome-file>bankmenu.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>select</servlet-name>
+		<servlet-class>com.easylearn.SelectBankAccountServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>select</servlet-name>
+		<url-pattern>/selectaction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>insert</servlet-name>
+		<servlet-class>com.easylearn.InsertBankAccountServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>insert</servlet-name>
+		<url-pattern>/insertaction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>delete</servlet-name>
+		<servlet-class>com.easylearn.DeleteBankAccountServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>delete</servlet-name>
+		<url-pattern>/deleteaction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>show</servlet-name>
+		<servlet-class>com.easylearn.DisplayAccountDetailsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>show</servlet-name>
+		<url-pattern>/showaction</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>update</servlet-name>
+		<servlet-class>com.easylearn.UpdateBankAccountServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/updateaction</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 30, 2017 7:38:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.easylearn.Employee" table="EMPLOYEE2" schema="SYSTEM">
+        <id name="idEmp" type="big_decimal">
+            <column name="ID_EMP" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="nmFirst" type="string">
+            <column name="NM_FIRST" length="40" />
+        </property>
+        <property name="nmLast" type="string">
+            <column name="NM_LAST" length="60" />
+        </property>
+        <property name="nmMid" type="string">
+            <column name="NM_MID" length="15" />
+        </property>
+        <property name="txAddress" type="string">
+            <column name="TX_ADDRESS" length="50" />
+        </property>
+        <property name="amSalary" type="java.lang.Double">
+            <column name="AM_SALARY" precision="126" scale="0" />
+        </property>
+        <property name="dtJoin" type="date">
+            <column name="DT_JOIN" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

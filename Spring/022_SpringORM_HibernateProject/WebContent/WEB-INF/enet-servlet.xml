@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.dev" />
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+<!-- Application Server Instance Configuration -->
+
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesMode"><value>1</value></property>
+		<property name="locations">
+			<list>
+				<value>file:C:/SpringHBProp/DataSourceConfig.properties</value>
+			</list>
+		</property>
+	</bean>
+ 
+	<bean id="ENetDBManager" class="org.springframework.jdbc.datasource.DriverManagerDataSource" depends-on="propertyConfigurer">
+		<property name="driverClassName"><value>${DriverName}</value></property>
+		<property name="url"><value>${Url}</value></property>
+		<property name="username"><value>${Username}</value></property>
+		<property name="password"><value>${Password}</value></property>
+	</bean>
+
+	<bean id="ENetSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource"><ref bean="ENetDBManager"/></property>
+		<property name="mappingResources">
+			<list>
+				<value>com/dev/db/Employee.hbm.xml</value>			
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${mysql.Dialect}</prop>
+				<prop key="hibernate.connection.isolation">2</prop>
+			    <prop key="hibernate.show_sql">true</prop>	
+			    <prop key="hibernate.use_sql_comments">true</prop>
+			    <prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="ENetDBManager" />
+</bean>
+	
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="10000000" />
+</bean>
+	
+<!-- Aspect Mapping -->
+<bean id="aspectLogging" class="com.enet.logger.GlobalLogger"/>
+
+<aop:config proxy-target-class="true">
+<!-- Pointcut Mapping -->
+	<aop:pointcut id="expRef" expression="execution(* com.dev.controller..*.*(..)) or execution(* com.dev.dao..*.*(..))" />
+  	
+<!-- Advice Mapping -->
+<aop:aspect id="aopAspect" ref="aspectLogging">
+	<aop:before pointcut-ref="expRef" method="methodEntry" />
+	<aop:after pointcut-ref="expRef" method="methodExit" />
+	<aop:after-returning pointcut-ref="expRef" method="methodExitAfterReturn" />
+  	<aop:after-throwing pointcut-ref="expRef" method="methodAfterThrowsAdvice" throwing="exception" />  	  
+</aop:aspect>
+</aop:config>
+	
+</beans>

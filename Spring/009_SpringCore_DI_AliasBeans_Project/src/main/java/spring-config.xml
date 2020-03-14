@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<alias name="empObj" alias="depart"/>
+	<alias name="empObj" alias="empBean"/>
+
+	<bean id="empObj" class="com.easylearn.EmployeeBean" name="empAliasBean">
+		<property name="salary" value="15000.86"/>
+		<property name="department" value="JAVA" ></property>
+		<property name="empId">
+			<value>1001</value>
+		</property>
+		<property name="isActive" value="true"></property>
+		<property name="name" value="John Smith"></property>
+		<property name="resiAddress" ref="resiAddrObj"></property>
+		<property name="mailAddress">
+					<ref bean="mailAddrObj"/>
+		</property>
+	</bean>
+
+	<bean id="resiAddrObj" class="com.easylearn.Address">
+		<constructor-arg value="586"></constructor-arg>
+		<constructor-arg value="Maine road"></constructor-arg>
+		<constructor-arg value="Minniapolis"></constructor-arg>
+		<constructor-arg value="55456"></constructor-arg>
+		<constructor-arg value="MN"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
+	</bean>
+	
+	<bean id="mailAddrObj" class="com.easylearn.Address">
+		<constructor-arg value="786"></constructor-arg>
+		<constructor-arg value="Bluegaintan road"></constructor-arg>
+		<constructor-arg value="Minniapolis"></constructor-arg>
+		<constructor-arg value="55456"></constructor-arg>
+		<constructor-arg value="MN"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
+	</bean>
+	
+
+</beans>

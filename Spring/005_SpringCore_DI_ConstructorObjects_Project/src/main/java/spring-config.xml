@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="empObj" class="com.easylearn.EmployeeBean">
+		<constructor-arg value="15000.86" type="java.lang.Float"></constructor-arg>
+		<constructor-arg value="JAVA" index="4"></constructor-arg>
+		<constructor-arg value="1001"></constructor-arg>
+		<constructor-arg value="true"></constructor-arg>
+		<constructor-arg value="John Smith" type="java.lang.String" index="0"></constructor-arg>
+		<constructor-arg ref="addrObj"></constructor-arg>
+	</bean>
+
+	<bean id="addrObj" class="com.easylearn.Address">
+		<constructor-arg value="786"></constructor-arg>
+		<constructor-arg value="Bluegaintan road"></constructor-arg>
+		<constructor-arg value="Minniapolis"></constructor-arg>
+		<constructor-arg value="55456"></constructor-arg>
+		<constructor-arg value="MN"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
+	</bean>
+
+</beans>
