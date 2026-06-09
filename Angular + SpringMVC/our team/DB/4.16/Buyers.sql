@@ -1,0 +1,23 @@
+USE Market_backend
+IF EXISTS(SELECT 1 FROM sys.tables WHERE object_id = OBJECT_ID('Buyer'))
+BEGIN;
+    DROP TABLE [Buyer];
+END;
+GO
+
+CREATE TABLE [Buyer] (
+    [BuyerID] INTEGER NOT NULL IDENTITY(1, 1),
+    [Username] VARCHAR(MAX) NULL,
+    [Password] VARCHAR(MAX) NULL,
+    [Email] VARCHAR(255) NULL,
+    [FirstName] VARCHAR(255) NULL,
+    [LastName] VARCHAR(255) NULL,
+    PRIMARY KEY ([BuyerID])
+);
+GO
+
+INSERT INTO Buyer([Username],[Password],[Email],[FirstName],[LastName]) VALUES('cursus','a','magnis.dis@idante.net','Nicholas','Indira'),('rutrum,','tellus,','Mauris.blandit@Proin.co.uk','Philip','Carolyn'),('metus.','euismod','ipsum.non@Donecconsectetuer.com','Josiah','Deborah'),('egestas.','urna','sed.dictum.eleifend@hendreritDonecporttitor.co.uk','Mannix','Abra'),('viverra.','nulla.','faucibus@Integer.edu','Alec','Rhona'),('ligula','amet','facilisi@In.net','Gage','Cora'),('sagittis.','facilisis','nec.mauris.blandit@diam.net','Isaac','Jade'),('purus','nec','enim.Mauris@interdumlibero.net','Devin','Rachel'),('erat','Integer','nec@arcu.com','Igor','Catherine'),('aliquet','dui','ut.aliquam.iaculis@convallisestvitae.net','Jeremy','Hadley'),('Praesent','elit,','non.nisi.Aenean@placerat.co.uk','Beck','Veda'),('vel','fermentum','eu.ultrices@adipiscing.net','Jared','Mari'),('in,','vitae','Phasellus.elit@ipsumDonecsollicitudin.net','Vernon','Melanie'),('et','Fusce','sit@seddolor.edu','Nero','Willa'),('at','justo','quis.tristique.ac@Duis.com','Beck','Hillary'),('blandit','tempus','erat.vitae@feugiatnecdiam.net','Merritt','Desirae'),('Donec','vulputate,','lectus.rutrum.urna@ac.ca','Hiram','Tamekah'),('non,','Duis','hendrerit.consectetuer.cursus@Maurisvestibulumneque.ca','Alfonso','Noelle'),('feugiat.','Curabitur','ornare.egestas.ligula@Aliquam.ca','Kadeem','Yolanda'),('mi,','rhoncus.','molestie@Mauris.co.uk','Kenneth','Maya');
+INSERT INTO Buyer([Username],[Password],[Email],[FirstName],[LastName]) VALUES('nec','magnis','egestas@ametmassa.org','Boris','Nerea'),('vel','lacinia','habitant.morbi.tristique@malesuadaut.com','Rudyard','Marah'),('vitae','faucibus','venenatis.vel@mauriserat.net','Colton','Ciara'),('est','enim','Curabitur@nislNulla.org','Forrest','MacKensie'),('dictum','rhoncus.','Sed.congue@et.com','Hop','Maggy'),('Nam','turpis.','mus.Proin@ataugueid.co.uk','Dieter','Hayfa'),('imperdiet','id,','risus.at@commodo.com','Brennan','Elizabeth'),('Phasellus','gravida.','ut.ipsum@dolorNullasemper.ca','Stephen','Iona'),('est.','blandit','risus.odio@massa.com','Wade','Macey'),('metus','scelerisque','felis.adipiscing.fringilla@loremeget.ca','Hamish','Cameran'),('nec','pharetra','elementum@odioNaminterdum.co.uk','Patrick','Cally'),('varius','facilisis','elementum@risus.edu','Thane','Sharon'),('justo.','lobortis','torquent.per@arcuCurabitur.net','Galvin','Nora'),('dapibus','Vivamus','sit.amet.faucibus@nuncacmattis.ca','Caesar','Ignacia'),('ac','tristique','ut@esttemporbibendum.edu','Sean','Karyn'),('vel,','vehicula','feugiat.Lorem.ipsum@lacusCras.co.uk','Bradley','Moana'),('molestie','nunc','libero.Morbi@vitaealiquameros.org','Cody','Alika'),('lacinia','lorem','risus.Morbi.metus@semeget.edu','Sebastian','Alexandra'),('arcu','lobortis','Donec.sollicitudin@cursusluctus.com','Quamar','Kylee'),('in','natoque','cubilia@Proin.ca','Nathan','Lilah');
+INSERT INTO Buyer([Username],[Password],[Email],[FirstName],[LastName]) VALUES('urna','elit,','Vivamus.molestie@purusinmolestie.com','Joshua','Joelle'),('vitae','rhoncus.','semper.tellus@infaucibus.org','Kasper','Kimberley'),('est.','pharetra,','quis.pede.Suspendisse@mifringillami.co.uk','Julian','Sara'),('a','Integer','massa@nequevitae.com','Reese','Risa'),('Aliquam','faucibus','molestie.Sed.id@enimnon.co.uk','Berk','Ann'),('libero.','elit.','Proin@Donecnon.co.uk','Hilel','Sacha'),('tristique','velit','augue.scelerisque@semper.edu','Malachi','Blair'),('lectus','pede,','quis.diam.Pellentesque@tellus.com','Shad','Sonia'),('tempus','metus','semper.cursus.Integer@Vivamusnibh.com','Akeem','Maisie'),('aliquet,','vel','tristique.senectus.et@ligulaAeneaneuismod.ca','Warren','Freya'),('tristique','Curabitur','quam.Curabitur@necenim.ca','Kasimir','Melyssa'),('nisl.','erat','libero@inceptoshymenaeos.ca','Chadwick','Yvonne'),('tempus','erat','enim.nisl.elementum@nislQuisque.edu','August','Gemma'),('et','ipsum.','Mauris@eu.co.uk','Adrian','Quintessa'),('tincidunt','risus.','ut@hendrerit.ca','Ryder','Desiree'),('nisi.','vel','morbi@Quisqueimperdiet.edu','Christopher','Aurora'),('Etiam','Morbi','sociosqu.ad@lorem.net','Dillon','Angela'),('justo.','venenatis','vitae.posuere.at@egetmollis.edu','Plato','Kalia'),('egestas','lacinia.','pede@neccursus.net','Ezra','Laurel'),('eget','ligula.','tincidunt@molestiedapibus.net','Walker','Orla');
+
+SELECT * FROM Buyer;
